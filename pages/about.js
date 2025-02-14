@@ -16,7 +16,7 @@ export default function About(props) {
                     </p>
 
                     <p>
-                        Feel free to check out one of the listings I’ve highlighted from our dataset:
+                        This is one of the places i would like to stay at night time i travle to [location]
                         <Link href="/listing/1206363" passHref legacyBehavior>
                             <a> View Listing </a>
                         </Link>
