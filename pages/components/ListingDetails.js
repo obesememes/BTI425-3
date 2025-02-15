@@ -1,6 +1,17 @@
 import { Container, Row, Col } from "react-bootstrap";
 
-export default function ListingDetails({ listing }) {
+export default function ListingDetails({ listing = {} }) {
+    const {
+        images = {},
+        neighborhood_overview = "No description available.",
+        price,
+        room_type = "N/A",
+        bed_type = "N/A",
+        beds = "N/A",
+        review_scores = {},
+        number_of_reviews = 0
+    } = listing;
+
     return (
         <Container>
             <Row>
@@ -12,7 +23,7 @@ export default function ListingDetails({ listing }) {
                                 "https://placehold.co/600x400?text=Photo+Not+Available";
                         }}
                         className="img-fluid w-100"
-                        src={listing.images?.picture_url}
+                        src={images.picture_url || "https://placehold.co/600x400?text=Photo+Not+Available"}
                         alt="Listing Image"
                     />
                     <br />
@@ -21,19 +32,19 @@ export default function ListingDetails({ listing }) {
 
                 <Col lg>
                     <p>
-                        <strong>{listing.neighborhood_overview || "No description available."}</strong>
+                        <strong>{neighborhood_overview}</strong>
                     </p>
                     <br />
 
                     <p>
-                        <strong>Price:</strong> ${listing.price?.toFixed(2)}
+                        <strong>Price:</strong> {price !== undefined ? `$${price.toFixed(2)}` : "N/A"}
                         <br />
-                        <strong>Room:</strong> {listing.room_type}
+                        <strong>Room:</strong> {room_type}
                         <br />
-                        <strong>Bed:</strong> {listing.bed_type} ({listing.beds})
+                        <strong>Bed:</strong> {bed_type} ({beds})
                         <br />
-                        <strong>Rating:</strong> {listing.review_scores?.review_scores_rating || "N/A"} / 100
-                        ({listing.number_of_reviews} Reviews)
+                        <strong>Rating:</strong> {review_scores.review_scores_rating || "N/A"} / 100
+                        ({number_of_reviews} Reviews)
                     </p>
                     <br />
                 </Col>

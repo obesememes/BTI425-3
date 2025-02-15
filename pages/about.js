@@ -1,31 +1,33 @@
 import Link from "next/link";
 import { Card } from "react-bootstrap";
-import ListingDetails from "@/components/ListingDetails";
-import PageHeader from "@/components/PageHeader";
+import ListingDetails from "@/pages/components/ListingDetails";
+import PageHeader from "@/pages/components/PageHeader";
 
-export default function About(props) {
-    return (
-        <>
-            <PageHeader text="About the Developer - Mustansir Lightwalla" />
+export async function getStaticProps() {
+    const res = await fetch('https://bti-425-a1-snowy.vercel.app/api/listings/1206363')
+    const data = await res.json();
+    return {props: {listing:data}};
+}
 
-            <Card>
-                <Card.Body>
-                    <p>
-                        Hello! I am Mustansir Lightwalla, a software development student at Seneca with experience in
-                        web development and other coding languages. I enjoy working with computers, going to the gym, and playing video games.
-                    </p>
-
-                    <p>
-                        This is one of the places i would like to stay at night time i travle to [location]
-                        <Link href="/listing/10006546" passHref legacyBehavior>
-                            <a> View Listing </a>
-                        </Link>
-                    </p>
-                </Card.Body>
-
-                <ListingDetails listing={props.listing} />
-            </Card>
-            <br />
-        </>
-    );
+export default function About({listing}) {
+    return (<>
+    <PageHeader title = "About the Developer - Mustansir Lightwalla" />
+    <Card>
+        <Card.Body>
+        I’m Mustansir Lightwalla, a software development student at Seneca. 
+        I enjoy working with computers and learning different coding languages, 
+        which has given me a strong foundation in programming. My studies also involve web development, 
+        where I get to build and refine digital applications. Beyond coding, I have a deep passion for hardware
+        and love building PCs from scratch. Whether it's selecting the right components, assembling a system
+        for optimal performance, or troubleshooting hardware issues, I enjoy the hands-on experience of working 
+        with computer hardware just as much as I do with software. Outside of tech, I like staying active by going 
+        to the gym and unwinding with video games. Balancing fitness, gaming, my passion for software development, 
+        and my interest in building PCs keeps me motivated and constantly learning. 
+        <br /><br />
+        One of the places that I would like to visit is the: <Link href="https://www.airbnb.com/rooms/1206363">Eco Hale Hawaii in the Rainforest Lots of Aloha</Link>
+        </Card.Body>
+        <ListingDetails listing={listing}/>
+    </Card>
+        <p>About</p>
+    </>)
 }
