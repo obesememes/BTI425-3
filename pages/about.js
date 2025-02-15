@@ -24,7 +24,7 @@ export default function About({listing}) {
         to the gym and unwinding with video games. Balancing fitness, gaming, my passion for software development, 
         and my interest in building PCs keeps me motivated and constantly learning. 
         <br /><br />
-        One of the places that I would like to visit is the: <Link href="https://www.airbnb.com/rooms/1206363">Eco Hale Hawaii in the Rainforest Lots of Aloha</Link>
+        One day I would like to visit is the: <Link href="https://www.airbnb.com/rooms/1206363">Eco Hale Hawaii in the Rainforest Lots of Aloha</Link>
         </Card.Body>
         <ListingDetails listing={listing}/>
     </Card>
