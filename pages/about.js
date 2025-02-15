@@ -17,7 +17,7 @@ export default function About(props) {
 
                     <p>
                         This is one of the places i would like to stay at night time i travle to [location]
-                        <Link href="/listing/1206363" passHref legacyBehavior>
+                        <Link href="/listing/10006546" passHref legacyBehavior>
                             <a> View Listing </a>
                         </Link>
                     </p>
